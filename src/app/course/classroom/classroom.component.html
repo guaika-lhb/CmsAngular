@@ -1,0 +1,51 @@
+<div>
+  <button class="btn btn-primary" (click) = "addClassroom()">添加</button>
+  
+  </div>
+  
+  
+  <div>
+      <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">教室名称:</span>
+          </div>
+          <input type="text" [(ngModel)]="r.name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+  
+        <button class="btn btn-success" (click)="save()">保存</button>
+        <button class="btn btn-info">取消</button>
+  
+  
+  </div>
+  
+  
+  <table class="table">
+  <tr>
+  <th>
+      课程名称
+  </th>
+  <th>
+      操作
+  </th>
+  
+  </tr>
+  
+  
+  <tr *ngFor="let x of rl" >
+  <td>
+  {{x.name}}
+  
+  </td>
+  
+  <td>
+      <button class="btn btn-warning" (click)="toupdate(x)">修改</button>
+      <button class="btn btn-danger" (click)="deleteClassroom(x)">删除</button>
+  </td>
+  
+  </tr>
+  
+  
+  
+  
+  </table>
+  

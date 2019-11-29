@@ -1,0 +1,40 @@
+
+<p>{{parm}}</p>
+
+<button class="btn btn-primary" (click)="save()">保存</button>
+<button class="btn btn-warning" (click)="goBack()">返回</button>
+
+<div class="form-group">
+  <label for="exampleInputEmail1">标题</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入标题" [(ngModel)]="carousel.title">
+  <small id="emailHelp" class="form-text text-muted">标题不要超过40个字，不要包含特殊字符</small>
+</div>
+
+
+<div class="form-group">
+  <label for="exampleInputEmail1">描述</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入描述" [(ngModel)]="carousel.discription">
+  <small id="emailHelp" class="form-text text-muted">描述不要超过40个字，不要包含特殊字符</small>
+</div>
+
+<div class="form-group">
+  <label for="exampleInputEmail1">图片</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请上传图片" [(ngModel)]="carousel.pic">
+  
+  <input type="file" (change)="onFileChanged($event)">
+
+<button (click)="onUpload()">上传</button>
+  
+  
+  <small id="emailHelp" class="form-text text-muted">图片不要太大，不要包含特殊字符</small>
+
+
+
+</div>
+
+
+<div class="form-group">
+  <label for="exampleInputEmail1">详细内容</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入详细内容" [(ngModel)]="carousel.content">
+  <small id="emailHelp" class="form-text text-muted">详细内容不要超过40个字，不要包含特殊字符</small>
+</div>

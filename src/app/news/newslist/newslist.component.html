@@ -1,0 +1,74 @@
+<div class="card">
+    <div class="card-hrader">
+      <button class="btn btn-primary" (click)="addNews()">添加</button>
+    </div>
+    <div class="card--body">
+    
+      <table class="table">
+        <tr>
+          <th>序号</th>
+          <th>主键</th>
+          <th>标题</th>
+          <th>作者</th>
+          <th>发布时间</th>
+          <th>内容</th>
+          <th>封面</th>
+          <th>操作</th>
+        </tr>
+    
+        <tr *ngFor="let n of nl">
+            <td>{{n.px}}</td>
+            <td>{{n.newsid}}</td>
+            <td>{{n.title}}</td>
+            <td>{{n.author}}</td>
+            <td>{{n.pbdate | date:'yyyy-MM-dd HH:mm'}}</td>
+            <td>
+              <div [innerHTML]="n.content | tohtml"></div>
+            </td>
+
+            <td>
+                <img width="200px" height="200px"  src="{{HOST}}{{n.coverpic}}" *ngIf="n.coverpic" />
+
+                <input type="file" (change)="onFileChanged($event)">
+            </td>
+
+            <td>
+              <button class="btn btn-warning" (click)="updateNews(n.newsid)">修改</button>
+              <button class="btn btn-danger" (click)="deleteNews(n.newsid)">删除</button>
+              <button class="btn btn-info" (click)="toDetail(n.newsid)">预览</button>
+              <button class="btn btn-success" (click)="uploadNewsCover(n.newsid)">上传封面</button>
+            </td>
+            
+            </tr>
+    
+    
+      </table>
+    </div>
+    
+    <div class="card-foot">
+       <nav aria-label="Page navigation example">
+         <ul class="pagination">
+           <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+           <li class="page-item"><a class="page-link" href="#">1</a></li>
+           <li class="page-item"><a class="page-link" href="#">2</a></li>
+           <li class="page-item"><a class="page-link" href="#">3</a></li>
+           <li class="page-item"><a class="page-link" href="#">Next</a></li>
+         </ul>
+    
+    
+       </nav>
+    
+    </div>
+    
+    
+    
+    
+    </div>
+    <div class="card">
+      
+
+
+
+
+
+      </div>

@@ -1,0 +1,39 @@
+{{parm}}
+
+<div class="form-group">
+    <label for="exampleInputEmail1">标题</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入标题" [(ngModel)]="news.title">
+    <small id="emailHelp" class="form-text text-muted">标题不要超过40个字，不要包含特殊字符</small>
+  </div>
+
+  <div class="form-group">
+      <label for="exampleInputEmail1">作者</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入姓名" [(ngModel)]="news.author">
+      
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">序号</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入数字" [(ngModel)]="news.px">
+        
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">正文</label>
+
+        <ckeditor [(ngModel)]="news.content"
+        debounce="500"
+        [config]="config"></ckeditor>
+
+
+
+
+
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary" (click)="save()">保存</button>
+        <button class="btn btn-danger" (click)="goBack()">取消</button>
+  
+  
+        </div>

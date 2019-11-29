@@ -1,0 +1,472 @@
+<div>
+  <p *ngIf="tosavecourse.cid != null" >当前选中的单元格是{{tosavecourse.cid}}</p>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">教室</span>
+    </div>
+    <input type="text"  [(ngModel)]="tosavecourse.classroom" class="form-control" placeholder="教室" aria-label="Username" aria-describedby="basic-addon1">
+
+    <div class="input-group-append">
+        
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" *ngFor="let r of rl" (click)="onClassroomValueSelect(r)">{{r.name}}</a>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon2">班级</span>
+    </div>
+    <input type="text"  [(ngModel)]="tosavecourse.student" class="form-control" placeholder="班级" aria-label="Username" aria-describedby="basic-addon2">
+
+    <div class="input-group-append">
+        
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" *ngFor="let s of sl" (click)="onStudentValueSelect(s)">{{s.name}}</a>
+          
+        </div>
+      </div>
+
+
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon2">教师</span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="tosavecourse.teacher" placeholder="教师" aria-label="Username" aria-describedby="basic-addon2">
+
+
+    <div class="input-group-append">
+        
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" *ngFor="let h of hl" (click)="onTeacherValueSelect(h)">{{h.name}}</a>
+        </div>
+      </div>
+  </div>
+
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon2">课程</span>
+    </div>
+    <input type="text" class="form-control"  [(ngModel)]="tosavecourse.book" placeholder="课程" aria-label="Username" aria-describedby="basic-addon2">
+
+    <div class="input-group-append">
+        
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+        
+          <a class="dropdown-item" *ngFor="let b of bl" (click)="onBookValueSelect(b)">{{b.name}}</a>
+        </div>
+      </div>
+
+  </div>
+
+<button class="btn btn-primary" (click)="save()">保存</button>
+<button class="btn btn-danger">取消</button>
+
+
+
+</div>
+
+
+
+
+
+<div class="row">
+  <div class="col">
+  
+      <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            班级
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" *ngFor="let s of sl"  (click)="onStudentSelect(s)">{{s.name}}</a>
+           
+          </div>
+        </div>
+  </div>
+  
+  
+  <div class="col">
+  
+      <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           课程
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <a class="dropdown-item" *ngFor="let b of bl" (click)="onBookSelect(b)">{{b.name}}</a>
+           
+          </div>
+        </div>
+  </div>
+  
+  
+  <div class="col">
+  
+      <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          教室
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+            <a class="dropdown-item" *ngFor="let r of rl" (click)=" onClassroomSelect(r)">{{r.name}}</a>
+           
+          </div>
+        </div>
+  </div>
+  
+  
+  
+  <div class="col">
+  
+      <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         教师
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+            <a class="dropdown-item" *ngFor="let h of hl" (click)=" onTeacherSelect(h)">{{h.name}}</a>
+           
+          </div>
+        </div>
+  </div>
+  
+  </div>
+  
+
+
+  <table class="table table-bordered table-striped table-hover" style="height: 450px">
+    <thead>
+       <tr>
+          <th scope="col"></th>
+           <th scope="col">星期一</th> 
+           <th scope="col">星期二</th>
+            <th scope="col">星期三</th> 
+            <th scope="col">星期四</th> 
+            <th scope="col">星期五</th> 
+           </tr> </thead>
+            <tbody style="text-align: center;">
+              <tr style="height: 80px">
+               <th scope="row">1-2节 </th>
+                <td >
+                   <div *ngIf="cl[0]" (click)="onGridSelect(0)">
+                      <p>{{cl[0].id}}</p>
+                       <p>{{cl[0].name}}</p>
+                       <p>{{cl[0].student}}</p>
+                       <p>{{cl[0].classroom}}</p>
+                       <p>{{cl[0].teacher}}</p>
+                     </div>
+                </td> 
+                <td id="table_2_1">
+                   <div *ngIf="cl[5]" (click)="onGridSelect(5)">
+                       <p>{{cl[5].id}}</p>
+                       <p>{{cl[5].name}}</p>
+                       <p>{{cl[5].student}}</p>
+                       <p>{{cl[5].classroom}}</p>
+                       <p>{{cl[5].teacher}}</p>
+                     </div>        
+ 
+ 
+ 
+                </td> 
+                <td id="table_3_1">
+                   <div *ngIf="cl[10]" (click)="onGridSelect(10)">
+                       <p>{{cl[10].id}}</p>
+                       <p>{{cl[10].name}}</p>
+                       <p>{{cl[10].student}}</p>
+                       <p>{{cl[10].classroom}}</p>
+                       <p>{{cl[10].teacher}}</p>
+                     </div>      
+ 
+ 
+                </td>
+                 <td id="table_4_1">
+                     <div *ngIf="cl[15]" (click)="onGridSelect(15)">
+                         <p>{{cl[15].id}}</p>
+                         <p>{{cl[15].name}}</p>
+                         <p>{{cl[15].student}}</p>
+                         <p>{{cl[15].classroom}}</p>
+                         <p>{{cl[15].teacher}}</p>
+                       </div>    
+ 
+                 </td> 
+                 <td id="table_5_1">
+                     <div *ngIf="cl[20]" (click)="onGridSelect(20)">
+                         <p>{{cl[20].id}}</p>
+                         <p>{{cl[20].name}}</p>
+                         <p>{{cl[20].student}}</p>
+                         <p>{{cl[20].classroom}}</p>
+                         <p>{{cl[20].teacher}}</p>
+                       </div>    
+ 
+                 </td> 
+               </tr>
+                <tr style="height: 80px"> 
+                 <th scope="row">3-4节 </th> 
+                 <td id="table_1_2">
+                     <div *ngIf="cl[1]" (click)="onGridSelect(1)" >
+                         <p>{{cl[1].id}}</p>
+                         <p>{{cl[1].name}}</p>
+                         <p>{{cl[1].student}}</p>
+                         <p>{{cl[1].classroom}}</p>
+                         <p>{{cl[1].teacher}}</p>
+                       </div>
+ 
+ 
+ 
+                 </td> 
+                 <td id="table_2_2">
+                     <div *ngIf="cl[6]" (click)="onGridSelect(6)">
+                         <p>{{cl[6].id}}</p>
+                         <p>{{cl[6].name}}</p>
+                         <p>{{cl[6].student}}</p>
+                         <p>{{cl[6].classroom}}</p>
+                         <p>{{cl[6].teacher}}</p>
+                       </div>        
+   
+ 
+ 
+ 
+                 </td>
+                  <td id="table_3_2">
+                     <div *ngIf="cl[11]" (click)="onGridSelect(11)">
+                         <p>{{cl[11].id}}</p>
+                         <p>{{cl[11].name}}</p>
+                         <p>{{cl[11].student}}</p>
+                         <p>{{cl[11].classroom}}</p>
+                         <p>{{cl[11].teacher}}</p>
+                       </div>      
+ 
+                  </td>
+                   <td id="table_4_2">
+                       <div *ngIf="cl[16]" (click)="onGridSelect(16)" >
+                           <p>{{cl[16].id}}</p>
+                           <p>{{cl[16].name}}</p>
+                           <p>{{cl[16].student}}</p>
+                           <p>{{cl[16].classroom}}</p>
+                           <p>{{cl[16].teacher}}</p>
+                         </div>    
+ 
+ 
+ 
+                   </td> 
+                   <td id="table_5_2">
+ 
+                       <div *ngIf="cl[21]" (click)="onGridSelect(21)">
+                           <p>{{cl[21].id}}</p>
+                           <p>{{cl[21].name}}</p>
+                           <p>{{cl[21].student}}</p>
+                           <p>{{cl[21].classroom}}</p>
+                           <p>{{cl[21].teacher}}</p>
+                         </div>    
+ 
+                   </td> 
+                 </tr>
+                  <tr style="height: 80px">
+                    <th scope="row">5-6节 </th>
+                     <td id="table_1_3">
+                         <div *ngIf="cl[2]" (click)="onGridSelect(2)">
+                             <p>{{cl[2].id}}</p>
+                             <p>{{cl[2].name}}</p>
+                             <p>{{cl[2].student}}</p>
+                             <p>{{cl[2].classroom}}</p>
+                             <p>{{cl[2].teacher}}</p>
+                           </div>
+ 
+ 
+ 
+ </td>
+ 
+ <td id="table_2_3">
+     <div *ngIf="cl[7]" (click)="onGridSelect(7)">
+         <p>{{cl[7].id}}</p>
+         <p>{{cl[7].name}}</p>
+         <p>{{cl[7].student}}</p>
+         <p>{{cl[7].classroom}}</p>
+         <p>{{cl[7].teacher}}</p>
+       </div>      
+ 
+ </td> 
+ <td id="table_3_3">
+     <div *ngIf="cl[12]" (click)="onGridSelect(12)">
+         <p>{{cl[12].id}}</p>
+         <p>{{cl[12].name}}</p>
+         <p>{{cl[12].student}}</p>
+         <p>{{cl[12].classroom}}</p>
+         <p>{{cl[12].teacher}}</p>
+       </div>    
+ 
+ 
+ </td>
+  <td id="table_4_3">
+     <div *ngIf="cl[17]" (click)="onGridSelect(17)">
+         <p>{{cl[17].id}}</p>
+         <p>{{cl[17].name}}</p>
+         <p>{{cl[17].student}}</p>
+         <p>{{cl[17].classroom}}</p>
+         <p>{{cl[17].teacher}}</p>
+       </div>    
+ 
+ 
+  </td> 
+  <td id="table_5_3">
+     <div *ngIf="cl[22]" (click)="onGridSelect(22)" >
+         <p>{{cl[22].id}}</p>
+         <p>{{cl[22].name}}</p>
+         <p>{{cl[22].student}}</p>
+         <p>{{cl[22].classroom}}</p>
+         <p>{{cl[22].teacher}}</p>
+       </div>    
+ 
+ 
+  </td> 
+ </tr> 
+ 
+ <tr style="height: 80px"> 
+   <th scope="row">7-8节 </th>
+   
+   <td id="table_1_4">
+       <div *ngIf="cl[3]" (click)="onGridSelect(3)">
+           <p>{{cl[3].id}}</p>
+           <p>{{cl[3].name}}</p>
+           <p>{{cl[3].student}}</p>
+           <p>{{cl[3].classroom}}</p>
+           <p>{{cl[3].teacher}}</p>
+         </div>
+ 
+   </td>
+   
+   <td id="table_2_4">
+       <div *ngIf="cl[8]" (click)="onGridSelect(8)">
+           <p>{{cl[8].id}}</p>
+           <p>{{cl[8].name}}</p>
+           <p>{{cl[8].student}}</p>
+           <p>{{cl[8].classroom}}</p>
+           <p>{{cl[8].teacher}}</p>
+         </div>      
+ 
+   </td>
+   
+   <td id="table_3_4">
+       <div *ngIf="cl[13]" (click)="onGridSelect(13)">
+           <p>{{cl[13].id}}</p>
+           <p>{{cl[13].name}}</p>
+           <p>{{cl[13].student}}</p>
+           <p>{{cl[13].classroom}}</p>
+           <p>{{cl[13].teacher}}</p>
+         </div>    
+ 
+   </td>
+   
+   <td id="table_4_4">
+ 
+       <div *ngIf="cl[18]" (click)="onGridSelect(18)">
+           <p>{{cl[18].id}}</p>
+           <p>{{cl[18].name}}</p>
+           <p>{{cl[18].student}}</p>
+           <p>{{cl[18].classroom}}</p>
+           <p>{{cl[18].teacher}}</p>
+         </div>    
+ 
+   </td> 
+   
+   <td id="table_5_4">
+       <div *ngIf="cl[23]" (click)="onGridSelect(23)">
+           <p>{{cl[23].id}}</p>
+           <p>{{cl[23].name}}</p>
+           <p>{{cl[23].student}}</p>
+           <p>{{cl[23].classroom}}</p>
+           <p>{{cl[23].teacher}}</p>
+         </div>      
+   
+   
+   </td>
+ 
+ </tr>
+  <tr style="height: 80px">
+ 
+    <th scope="row">9-10节 </th>
+ 
+     <td id="table_1_5">
+         <div *ngIf="cl[4]" (click)="onGridSelect(4)">
+             <p>{{cl[4].id}}</p>
+             <p>{{cl[4].name}}</p>
+             <p>{{cl[4].student}}</p>
+             <p>{{cl[4].classroom}}</p>
+             <p>{{cl[4].teacher}}</p>
+           </div>
+   
+ 
+ 
+     </td> 
+ 
+     <td id="table_2_5">
+ 
+         <div *ngIf="cl[9]" (click)="onGridSelect(9)">
+             <p>{{cl[9].id}}</p>
+             <p>{{cl[9].name}}</p>
+             <p>{{cl[9].student}}</p>
+             <p>{{cl[9].classroom}}</p>
+             <p>{{cl[9].teacher}}</p>
+           </div>      
+ 
+     </td> 
+ 
+     <td id="table_3_5">
+         <div *ngIf="cl[14]" (click)="onGridSelect(14)">
+             <p>{{cl[14].id}}</p>
+             <p>{{cl[14].name}}</p>
+             <p>{{cl[14].student}}</p>
+             <p>{{cl[14].classroom}}</p>
+             <p>{{cl[14].teacher}}</p>
+           </div>    
+ 
+ 
+     </td>
+ 
+      <td id="table_4_5">
+         <div *ngIf="cl[19]" (click)="onGridSelect(19)">
+             <p>{{cl[19].id}}</p>
+             <p>{{cl[19].name}}</p>
+             <p>{{cl[19].student}}</p>
+             <p>{{cl[19].classroom}}</p>
+             <p>{{cl[19].teacher}}</p>
+           </div>    
+ 
+ 
+      </td>
+ 
+       <td id="table_5_5"> 
+           <div *ngIf="cl[24]" (click)="onGridSelect(24)">
+               <p>{{cl[24].id}}</p>
+               <p>{{cl[24].name}}</p>
+               <p>{{cl[24].student}}</p>
+               <p>{{cl[24].classroom}}</p>
+               <p>{{cl[24].teacher}}</p>
+             </div>   
+ 
+ 
+       </td>
+ 
+      </tr> 
+ 
+     </tbody> 
+   </table>
+
+
+
+

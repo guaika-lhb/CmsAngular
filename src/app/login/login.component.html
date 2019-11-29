@@ -1,0 +1,36 @@
+<div class="card">
+  <h5 class="card-header">登录</h5>
+  <div class="card-body">
+    
+    <div class="form-group">
+      <label for="exampleInputEmail1">用户名:</label>
+      <input type="text" class="form-control" id="exampleInputEmail1"
+       aria-describedby="emailHelp" placeholder="请输入你的用户名"  [(ngModel)]="loginform.username">
+    
+    </div>
+
+
+    <div class="form-group">
+      <label for="exampleInputEmail11">密码:</label>
+      <input type="password" class="form-control" id="exampleInputEmail11"
+       aria-describedby="emailHelp" placeholder="请输入您的密码" [(ngModel)]="loginform.password">
+    
+    </div>
+
+
+
+    <div class="form-group">
+     
+
+
+      <button type="button" class="btn btn-primary" (click)="login()">登录</button>
+
+      <button type="button" class="btn btn-danger" (click)="reset()">重置</button>
+    
+    </div>
+
+
+
+
+  </div>
+</div>

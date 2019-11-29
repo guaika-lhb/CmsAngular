@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-header">
+    {{news.author}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{news.title}}</h5>
+    <p class="card-text"  [innerHTML]="news.content | tohtml"></p>
+    <a  class="btn btn-primary" (click)="goBack()">返回</a>
+  </div>
+</div>

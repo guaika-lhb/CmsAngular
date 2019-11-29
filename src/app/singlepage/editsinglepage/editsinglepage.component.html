@@ -1,0 +1,32 @@
+<div>{{parm}}</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">标题</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入标题" [(ngModel)]="singlepage.title">
+  <small id="emailHelp" class="form-text text-muted">标题不要超过40个字，不要包含特殊字符</small>
+</div>
+
+
+<div class="form-group">
+  <label for="exampleInputEmail1">描述</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入描述" [(ngModel)]="singlepage.summary">
+  <small id="emailHelp" class="form-text text-muted">标题不要超过40个字，不要包含特殊字符</small>
+</div>
+
+<div class="form-group">
+  <label for="exampleInputEmail1">图片</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请上传图片" [(ngModel)]="singlepage.img">
+  <input type="file" (change)="onFileChanged($event)">
+<button (click)="onUpload()">上传</button>
+  <small id="emailHelp" class="form-text text-muted">标题不要超过40个字，不要包含特殊字符</small>
+</div>
+
+<div class="form-group">
+  <label for="exampleInputEmail1">详细内容</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入详细内容" [(ngModel)]="singlepage.detail
+  ">
+  <small id="emailHelp" class="form-text text-muted">详细内容不要超过40个字，不要包含特殊字符</small>
+</div>
+
+
+<button class="btn btn-primary" (click)="save()">确定</button>
+<button class="btn btn-warning" (click)="goBack()" >取消</button>

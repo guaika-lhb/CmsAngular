@@ -1,0 +1,35 @@
+<button class="btn btn-primary"  (click)="addSinglepage()">新增</button>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">序号</th>
+        <th scope="col">标题</th>
+        <th scope="col">描述</th>
+        <th scope="col">图片</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of c2" >
+        <th scope="row">1</th>
+        <td>{{c.title}}</td>
+        <td>{{c.summary}}</td>
+        <td>
+            <img src="{{c.img}}" width="200" height="200"/>
+        </td>
+
+        <td>
+<button class="btn btn-warning" (click)="updateSinglepage(c.singlepageid)">修改</button>
+<button class="btn btn-danger"  (click)="deleteSinglepage(c.singlepageid)">删除</button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  
+
+
+
+  

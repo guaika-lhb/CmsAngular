@@ -1,0 +1,20 @@
+<!--
+<div class="row">
+  <div class="col-lg-4" *ngFor="let s of sl" >
+      <img class="rounded-circle" src="{{s.img}}" alt="Generic placeholder image" width="140" height="140">
+      <h2>{{s.title}}</h2>
+      <p>{{s.summary}}</p>
+     <p><a class="btn btn-secondary" (click)="toDateil(s.singlepageid)" role="button">查看详细 &raquo;</a></p>
+   </div>
+
+  </div>
+-->
+
+<div class="row">
+  <div class="col-lg-3" *ngFor="let s of sl" >
+      <img class="rounded-circle" src="{{s.img}}" alt="Generic placeholder image" width="140" height="140">
+      <h2>{{s.title}}</h2>
+      <p>{{s.summary}}</p>
+      <p><a class="btn btn-secondary" href="#" role="button">查看详细 &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+</div>

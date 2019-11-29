@@ -1,0 +1,79 @@
+<div class="container">
+  <!-- Content here -->
+
+<div class="row">
+<ul class="nav">
+    <a class="navbar-brand" [routerLink]="['index']" >
+        <img src="/assets/img/logo1.png" width="100" height="30" alt="">
+      </a>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">新闻</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" [routerLink]="['listnews']">新闻列表</a>
+          <a class="dropdown-item" [routerLink]="['eidtnews','add']">新闻编辑</a>
+         
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['newslistforuser']">客户用新闻列表</a>
+        </div>
+      </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">单页</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item"  [routerLink]="['showsinglepage']">单页列表</a>
+          <a class="dropdown-item"  [routerLink]="['editsinglepage','add']">单页编辑</a>
+          <a class="dropdown-item"  [routerLink]="['singlepagelist']">单页模块预览</a>
+       </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">轮播区</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" [routerLink]="['carouselforshow']">轮播区显示</a>
+          <a class="dropdown-item" [routerLink]="['uploadfile']">轮播区管理</a>
+      
+        </div>
+      </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">课程表</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" [routerLink]="['courseindex']">课程表主页</a>
+          <a class="dropdown-item" [routerLink]="['scheduling']">排课</a>
+          <a class="dropdown-item" [routerLink]="['book']">课程设置</a>
+          <a class="dropdown-item" [routerLink]="['student']">班级设置</a>
+          <a class="dropdown-item" [routerLink]="['classroom']">教室设置</a>
+          <a class="dropdown-item" [routerLink]="['teacher']">教师设置</a>
+      
+        </div>
+      </li>
+
+
+
+   
+
+  
+    
+ 
+
+    
+
+  
+
+
+    
+
+  </ul>
+</div>
+
+
+  <router-outlet></router-outlet>
+  <footer class="container">
+      <p class="float-right"><a href="#">Back to top</a></p>
+      <p><img src="/assets/img/bq.png" width="30" height="30" alt="">&copy; Copyright © 2017- 2018 地址：云南省玉溪市红塔区 邮箱：653100 &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+
+</div>
